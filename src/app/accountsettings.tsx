@@ -5,6 +5,8 @@ import NameEditModal from '../components/nameeditmodal';
 import PhoneEditModal from '../components/phoneeditmodal';
 import EmailEditModal from '../components/emaileditmodal';
 import Entypo from '@expo/vector-icons/Entypo';
+import { router, Stack } from 'expo-router';
+import EvilIcons from "@expo/vector-icons/EvilIcons";
 
 export default function AccountSettings() {
 
@@ -30,6 +32,23 @@ export default function AccountSettings() {
   
   return (
     <View style = {styles.view}>
+      <Stack.Screen
+        options={{
+          title: "Account",
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <EvilIcons name="arrow-left" size={40} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: "light",
+            color: "black",
+          },
+        }}
+      />
+
         <TouchableOpacity>
             <MaterialIcons name="account-circle" size={150} color="black" marginTop={40}/>
         </TouchableOpacity>

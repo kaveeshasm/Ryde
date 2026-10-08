@@ -2,6 +2,8 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import DeleteModal from '../components/deletemodal'; // adjust the path to where the file actually is
+import { router, Stack } from 'expo-router';
+import EvilIcons from "@expo/vector-icons/EvilIcons";
 
 export default function AdvancedSettings() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -13,6 +15,22 @@ export default function AdvancedSettings() {
 
   return (
     <View style={styles.view}>
+        <Stack.Screen
+        options={{
+          title: "Advanced Settings",
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <EvilIcons name="arrow-left" size={40} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: "light",
+            color: "black",
+          },
+        }}
+      />
       <TouchableOpacity
         style={styles.account}
         onPress={() => setModalVisible(true)}
