@@ -60,11 +60,13 @@ export default function HelpAndSupport() {
               onPress={() => toggle(item.id)}
             >
               <Text style={styles.question}>{item.question}</Text>
-              <MaterialIcons
-                name={isOpen ? "remove" : "add"}
-                size={24}
-                color="black"
-              />
+              <View style={styles.buttoncontainer}>
+                <MaterialIcons
+                    name={isOpen ? "remove" : "add"}
+                    size={24}
+                    color="black"
+                />
+              </View>
             </TouchableOpacity>
 
             {isOpen && <Text style={styles.answer}>{item.answer}</Text>}
@@ -102,5 +104,11 @@ const styles = StyleSheet.create({
     color: "#555",
     paddingBottom: 16,
     lineHeight: 22,
+  },
+  buttoncontainer: {
+    borderWidth: 1,
+    borderRadius: 50,
+    borderColor: '#c1f819',
+    backgroundColor: '#c1f819',
   },
 });
