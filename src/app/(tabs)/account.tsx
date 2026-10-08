@@ -12,7 +12,7 @@ export default function AccountScreen() {
       <MaterialIcons name="account-circle" size={150} color="black" marginTop={50}/>
       <Text style={styles.name}>User</Text>
       <View style={styles.buttoncontainer}>
-          <TouchableOpacity style={styles.help}>
+          <TouchableOpacity style={styles.help} onPress={() => router.push('/helpandsupport')}>
             <Feather name="help-circle" size={24} color="black" marginLeft={10} />
             <Text style={styles.helpText}>Help and Support</Text>
             <FontAwesome

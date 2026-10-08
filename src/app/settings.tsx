@@ -2,11 +2,28 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Feather from '@expo/vector-icons/Feather';
-import { router } from 'expo-router';
+import { router, Stack } from 'expo-router';
+import EvilIcons from "@expo/vector-icons/EvilIcons";
 
 export default function Settings() {
   return (
     <View style = {styles.view}>
+        <Stack.Screen
+        options={{
+          title: "Settings",
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <EvilIcons name="arrow-left" size={40} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontSize: 24,
+            fontWeight: "light",
+            color: "black",
+          },
+        }}
+      />
         <TouchableOpacity style={styles.account} onPress={() => router.push('/accountsettings')}>
             <MaterialIcons name="manage-accounts" size={24} color="black" />
             <Text style={styles.accountText}>Account</Text>
